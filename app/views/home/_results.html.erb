@@ -1,0 +1,23 @@
+<h2>Results</h2>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tbody>
+    <% repositories.each do |repo| %>
+      <tr>
+        <td class="image"><img src="<%= repo['owner']['avatar_url'] %>" style="height: 32px; width: 32px;" alt="avatar"></td>
+        <td class="product">
+          <strong>
+            <a href="<%= repo['html_url'] %>" target="_blank">
+              <%= repo['name'] %>
+            </a>
+          </strong>
+          <br>
+          <%= repo['description'] %></td>
+        <td class="rate text-right">
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <%= repo['stargazers_count'] %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

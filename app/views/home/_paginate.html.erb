@@ -1,0 +1,16 @@
+<ul class="pagination">
+  <% if page > 1 %>
+    <li>
+      <%= link_to '«', root_path(search_term: search_term, page: page-1) %>
+    </li>
+  <% end %>
+  <% (page..limit).each do |i| %>
+    <li class="<%= page == i ? 'active' : '' %>">
+      <% if i == limit  %>
+        <%= link_to '»', root_path(search_term: search_term, page: i) %>
+      <% else %>
+        <%= link_to i, root_path(search_term: search_term, page: i) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

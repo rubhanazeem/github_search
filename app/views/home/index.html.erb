@@ -5,112 +5,39 @@
       <div class="grid search">
         <div class="grid-body">
           <div class="row">
-            <!-- BEGIN RESULT -->
             <div class="col-md-12">
-              <h2><i class="fa fa-file-o"></i> Result</h2>
+              <h2>Github public repositories search</h2>
               <hr>
               <div class="row mb-5">
                 <div class="col-lg-8 mx-auto">
                   <div class="bg-white p-5 rounded shadow">
-                    <form>
+                    <%= form_tag root_path, method: :get do %>
                       <div class="row mb-4">
                         <div class="form-group col-md-9">
-                          <input id="exampleFormControlInput5" type="email" placeholder="What're you searching for?" class="form-control form-control-underlined">
+                          <%= text_field_tag :search_term, @search_term, id: 'exampleFormControlInput5', placeholder: "What're you searching for?", class: "form-control form-control-underlined" %>
                         </div>
                         <div class="form-group col-md-3">
-                          <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+                          <%= submit_tag :search, class: 'btn btn-primary btn-block' %>
                         </div>
                       </div>
-                    </form>
+                    <% end %>
                   </div>
                 </div>
               </div>
 
-              <!-- END SEARCH INPUT -->
-              <p>Showing all results matching "web development"</p>
-
               <div class="padding"></div>
 
-              <!-- BEGIN TABLE RESULT -->
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <tbody><tr>
-                    <td class="number text-center">1</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 1</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                    <td class="price text-right">$350</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">2</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 2</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></td>
-                    <td class="price text-right">$1,050</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">3</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 3</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></span></td>
-                    <td class="price text-right">$550</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">4</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 4</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></span></td>
-                    <td class="price text-right">$330</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">5</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 5</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
-                    <td class="price text-right">$540</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">6</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 6</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                    <td class="price text-right">$870</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">7</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 7</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></td>
-                    <td class="price text-right">$620</td>
-                  </tr>
-                  <tr>
-                    <td class="number text-center">8</td>
-                    <td class="image"><img src="https://via.placeholder.com/400x300" alt=""></td>
-                    <td class="product"><strong>Product 8</strong><br>This is the product description.</td>
-                    <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                    <td class="price text-right">$1,550</td>
-                  </tr>
-                  </tbody></table>
-              </div>
-              <!-- END TABLE RESULT -->
+              <% if @repositories %>
+                <%= render partial: 'results', locals: { repositories: @repositories } %>
+              <% end %>
 
-              <!-- BEGIN PAGINATION -->
-              <ul class="pagination">
-                <li class="disabled"><a href="#">«</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">»</a></li>
-              </ul>
-              <!-- END PAGINATION -->
+              <% if @repositories %>
+                <%= render partial: 'paginate', locals: { page: @page, limit: @limit, search_term: @search_term } %>
+              <% end %>
             </div>
-            <!-- END RESULT -->
           </div>
         </div>
       </div>
     </div>
-    <!-- END SEARCH RESULT -->
   </div>
 </div>
