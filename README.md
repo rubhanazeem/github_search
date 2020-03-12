@@ -28,3 +28,9 @@
 #### 3. Start the server
 1. `rails s`
     1. Visit http://localhost:3000/ to view the installation result.
+    
+#### 4. Implementation
+1. You can find the Github's search api implementation in `lib/github`
+2. Search form implementation is available in `app/controllers/home_controller`
+3. Exception handling is available in `application_controller`
+4. Tests are available in `spec/controllers`
