@@ -23,3 +23,7 @@
 1. `cp config/database.yml.example config/database.yml`
 2. Set username and password if required
 3. `bundle exec rails db:setup`
+
+#### 3. Start the server
+1. `rails s`
+    1. Visit http://localhost:3000/ to view the installation result.
