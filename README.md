@@ -1,24 +1,25 @@
-# README
+# rubhanazeem/github_search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment
 
-Things you may want to cover:
+- Ruby 2.6.5
+- Rails 5.2.3
+- PostgreSQL
+- Puma
 
-* Ruby version
+## Setup
 
-* System dependencies
+#### 1. Install Dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Open Terminal and get the Repo
+   1. Clone this repo `https://github.com/rubhanazeem/github_search.git`
+   2. `cd github_search` into the repo.
+2. Install Ruby through `rbenv`
+   1. `rbenv install 2.6.5`
+3. Install bundler
+   1. `gem install bundler`
+   
+#### 2. Create the database
+1. `cp config/database.yml.example config/database.yml`
+2. Set username and password if required
+3. `bundle exec rails db:setup`
