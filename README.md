@@ -6,6 +6,7 @@
 - Rails 5.2.3
 - PostgreSQL
 - Puma
+- RSpec for Rails testing
 
 ## Setup
 
